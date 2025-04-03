@@ -1,6 +1,6 @@
-# Assignment Title
+# Project Title
 
-Assignment 2: Web Scraping and Text Analysis
+Project: Los Angeles Forest Fires Time Series Prediction based on Sentiment Analysis of Twitter Posts
 presented by Juan Carlos Katigbak 300366535 to Nikhil Bhardwaj CSIS4260 Special Topics in Data Analytics Section 001
 
 ## About the Assignment

@@ -5,21 +5,35 @@ presented by Juan Carlos Katigbak 300366535 to Nikhil Bhardwaj CSIS4260 Special 
 
 ## About the Assignment
 
-The purpose of this assignment is to combine research, benchmarking, and practical coding to perform web scraping from publicly available sources, followed by comprehensive text analysis. The assignment is divided into two parts, each incorporating research and coding elements.
+The purpose of this assignment is to combine research, benchmarking, and practical coding using the provided time-series dataset of Los Angeles weather patterns from January 1, 2014 to April 8, 2025 and web scraping from Los Angeles Times articles related to this, followed by comprehensive text analysis to be able to come up with an algorithm to try to predict when fires can happen in Los Angeles. The assignment is divided into five phases, each incorporating research and coding elements.
 
 Objectives
-Part 1: Web Scraping
+
+Phase 1: Getting and Cleaning Data
+Data Collection and Cleaning:
+- Getting 1o years of daily weather data for Los Angeles using Meteostat API
+- Cleaning data by removing empty columns, filling missing values, and preparing for modelling
+
+Phase 2: Web Scraping
 Research and Benchmarking:
 - Compare two popular web scraping libraries
 - Evaluate libraries based on ease of use and performance
-- Scrape at least 100 articles/pages from a subreddit/news website about a topic of your choice
+- Scrape 10 years worth of Los Angeles Times articles about forest fires taking place in Los Angeles
 
-Part 2: Text Analysis
+Part 3: Text Analysis
 Text Analysis:
-- Load the data obtained from Part 1
+- Load the data obtained from Phase 2
 - Apply two text analysis algorithms LSD and LLM
 - Generate a directional importance score (+1 for positive, -1 for negative) based on article content characteristics (e.g., length, summarization quality)
 - Present the final analysis results clearly in a CSV file
+
+Phase 4: Benchmarking Algorithms
+Data Collection and Cleaning:
+- ???
+
+Phase 5: Using Streamlit for Data Visualization
+Research and Benchmarking:
+- ???
 
 
 ### Prerequisites

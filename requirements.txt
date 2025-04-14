@@ -1,0 +1,16 @@
+beautifulsoup4 
+requests 
+pandas 
+numpy 
+lxml 
+transformers 
+torch 
+sentencepiece 
+scipy 
+scikit-learn 
+tqdm 
+ipywidgets 
+scrapy 
+streamlit 
+plotly
+

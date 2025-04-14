@@ -9,37 +9,77 @@ This project combines research, benchmarking, and real-world coding to create a 
 
 Objectives
 
-Phase 1: Getting and Cleaning Weather Data
-- Retrieve 10 years of daily weather data (2014–2025) using the Meteostat API.
-- Clean the dataset by handling null values and removing empty columns.
-- Prepare for time series modeling by ensuring consistency and completeness.
 
-Phase 2: Web Scraping Los Angeles Times Articles
-- Benchmark BeautifulSoup and Scrapy as scraping tools.
-- Use BeautifulSoup with requests + cookies to scrape fire-related articles from latimes.com from 2014–2025.
-- Apply strict keyword and location filtering ("wildfire", "los angeles", etc.) to improve data relevance.
-- Store results in CSV and TXT files (latimes_fire_articles.csv, latimes_fire_articles_cleaned.csv).
+Phase 1: Getting and Cleaning Weather Data
+Retrieve 10 years of daily weather data using the Meteostat API.
+
+Clean and normalize missing data.
+
+Output: los_angeles_weather_10yrs_cleaned.csv
+
+Phase 2: Web Scraping LA Times Articles
+Compare BeautifulSoup vs. Scrapy.
+
+Use requests + BeautifulSoup + cookies to bypass paywall.
+
+Filter articles by fire-related and location keywords.
+
+Output:
+
+latimes_fire_articles.csv (raw)
+
+latimes_fire_articles_cleaned.csv (relevant articles)
 
 Phase 3: NLP & Sentiment Analysis
-- Clean and preprocess all scraped content.
-- Use HuggingFace Transformers for:
-  - Sentiment scoring (range: -1 to +1)
-  - Emotion classification (fear, alert, sadness, anger, neutral)
-  - Summarization using bart-large-cnn
-- Assign each article a directional importance score based on combined sentiment and emotion analysis.
-- Save all outputs to CSV for integration in Phase 4.
+Use HuggingFace Transformers to:
 
-Phase 4: Predictive Modeling (Upcoming)
-- Merge weather and sentiment data by date.
-- Engineer features combining meteorological and public emotion/sentiment trends.
-- Train a classifier (e.g., Random Forest, XGBoost) to predict “fire/no fire” labels for each day.
+Assign sentiment scores (-1 to +1)
 
-Phase 5: Streamlit Dashboard (Upcoming)
-- Build an interactive dashboard to:
-  - Display forecast probabilities
-  - Visualize historical fire events
-  - Track emotion/sentiment trends
-  - Include upload feature for new LA Times article input and prediction
+Classify dominant emotion (fear, anger, concern, etc.)
+
+Generate article summaries
+
+Output:
+
+latimes_fire_articles_sentiment.csv
+
+latimes_emotion.csv
+
+latimes_fire_summary_importance.csv
+
+Phase 4: Predictive Modeling
+Merge weather and emotion data by date (weather_enriched_with_emotion.csv)
+
+Use fire_occurred as label (1 for fire, 0 for no fire).
+
+Train and benchmark:
+
+Logistic Regression
+
+Random Forest
+
+XGBoost
+
+Output: logistic_regression.pkl, weather_with_fire_labels.csv
+
+Phase 5: Streamlit Dashboard
+Visualize trends and predictions:
+
+Fire distribution pie chart
+
+Box plot of temperature vs. fire occurrence
+
+Dominant emotion trends
+
+Interactive timeline with temperature + emotion + fire events
+
+Output:
+
+app.py
+
+Streamlit dashboard
+
+
 
 
 ### Prerequisites
@@ -49,15 +89,23 @@ Phase 5: Streamlit Dashboard (Upcoming)
 
 ## Folder Structure (if extracted using Github)
 
-Katigbak_300366535_Project
-├── la_wildfire_ten_year_prediction    # Scraper and filtering pipeline using BeautifulSoup
-├── latimes_fire_articles.csv          # Raw scraped articles
-├── latimes_fire_articles_cleaned.csv  # Filtered articles by keyword relevance
-├── latimes_fire_articles_sentiment.csv# Articles with sentiment score
-├── latimes_fire_summary_importance.csv# Articles with summary + importance
-├── latimes_emotion.csv                # Articles with emotion classification
-├── los_angeles_weather_10yrs.csv      # Cleaned weather dataset (2014–2025)
-├── README.md                          # Documentation (this file)
+Katigbak_300366535_Project/
+├── app.py
+├── model/
+│   └── logistic_regression.pkl
+├── data/
+│   ├── los_angeles_weather_10yrs_cleaned.csv
+│   ├── latimes_fire_articles.csv
+│   ├── latimes_fire_articles_cleaned.csv
+│   ├── latimes_fire_articles_sentiment.csv
+│   ├── latimes_emotion.csv
+│   ├── latimes_fire_summary_importance.csv
+│   ├── weather_with_fire_labels.csv
+│   └── weather_enriched_with_emotion.csv
+├── README.md
+├── requirements.txt
+└── la_wildfire_ten_year_prediction.ipynb
+
 
 
 
@@ -87,50 +135,48 @@ env\Scripts\activate
 * Make sure to proactively do this in both Terminal/Command Prompt and Jupyter Notebook just to be sure so that there is no interruption with running the assignment!
 
 For macOS/Linux (Terminal)/For Windows (Command Prompt):
-pip install beautifulsoup4 requests pandas numpy lxml transformers torch sentencepiece scipy scikit-learn tqdm ipywidgets scrapy
+pip install beautifulsoup4 requests pandas numpy lxml transformers torch sentencepiece scipy scikit-learn tqdm ipywidgets scrapy streamlit plotly
+
 
 
 For Jupyter Notebook (Note: Regularly copy/paste/run this on the first cell of part1.ipynb and part2.ipynb just to make sure that these dependencies have also been installed in your Jupyter Notebook in case they have not been installed yet):
-!pip install beautifulsoup4 requests pandas numpy lxml transformers torch sentencepiece scipy scikit-learn tqdm ipywidgets scrapy
+!pip install beautifulsoup4 requests pandas numpy lxml transformers torch sentencepiece scipy scikit-learn tqdm ipywidgets scrapy streamlit plotly
+
 
 
 ### Running the Project
-Phase 1: Weather Data Collection
-Weather data retrieved from the Meteostat API. Run code cells in la_wildfire_ten_year_prediction.ipynb.
+Running the Project
+Phase 1–4 (in Jupyter Notebook)
+Open la_wildfire_ten_year_prediction.ipynb to run all the preprocessing, analysis, and modeling.
 
-Phase 2: Web Scraping
-- Run la_wildfire_ten_year_prediction.ipynb.ipynb for scraping LA Times articles (filtered for fire-related events).
-- Requires cookies from an active LA Times subscription.
+Phase 5: Streamlit Dashboard
+From terminal inside the project folder:
 
-Phase 3: Text Analysis
-- Run part2.ipynb to process scraped articles with:
-  - HuggingFace summarization
-  - Sentiment polarity analysis
-  - Emotion classification (fear, alert, sadness, neutral, anger)
-- Output: CSV files for modeling.
+streamlit run app.py
 
-
-Notes on Modeling (Phase 4)
-Initial modeling will:
-
-Merge article sentiment/emotion with weather by date.
-
-Use historical wildfire occurrences (if available) as labels.
-
-Train a classifier to forecast risk of fire based on weather + public mood.
+This opens the wildfire predictor dashboard in your browser.
 
 
 
+What I Learned / Limitations
+
+Learned:
+
+Combining time series + NLP for multi-source forecasting
+
+How emotion and sentiment can signal real-world events
+
+Visual storytelling via Streamlit
+
+Limitations:
+
+Very few fire events (14 in 10 years) led to class imbalance
+
+Emotions derived from articles may lag real fire dates
+
+Summarization was not used in final model due to limited contribution
 
 
-
-
-
-
-
-
-
-   
 
 ## Author
 

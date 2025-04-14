@@ -3,9 +3,9 @@
 Los Angeles Forest Fires Time Series Prediction based on Sentiment Analysis of Los Angeles Times Articles
 presented by Juan Carlos Katigbak 300366535 to Nikhil Bhardwaj CSIS4260 Special Topics in Data Analytics Section 001
 
-## About the Assignment
+## About the Project
 
-This assignment combines research, benchmarking, and real-world coding to create a predictive model that estimates the likelihood of forest fires in Los Angeles based on 10 years of daily weather data and public sentiment extracted from LA Times articles. The assignment is divided into five logical phases, each building on the previous.
+This project combines research, benchmarking, and real-world coding to create a predictive model that estimates the likelihood of forest fires in Los Angeles based on 10 years of daily weather data and public sentiment extracted from LA Times articles. The project is divided into five logical phases, each building on the previous.
 
 Objectives
 

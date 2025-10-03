@@ -1,7 +1,6 @@
 # Project Title
 
 Los Angeles Forest Fires Time Series Prediction based on Sentiment Analysis of Los Angeles Times Articles
-presented by Juan Carlos Katigbak 300366535 to Nikhil Bhardwaj CSIS4260 Special Topics in Data Analytics Section 001
 
 ## About the Project
 

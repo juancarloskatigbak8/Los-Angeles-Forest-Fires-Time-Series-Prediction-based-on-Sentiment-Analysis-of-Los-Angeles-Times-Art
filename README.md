@@ -88,7 +88,7 @@ Streamlit dashboard
 
 ## Folder Structure (if extracted using Github)
 
-Katigbak_300366535_Project/
+Los-Angeles-Forest-Fires-Time-Series-Prediction-based-on-Sentiment-Analysis-of-Los-Angeles-Times-Art-main/
 ├── app.py
 ├── model/
 │   └── logistic_regression.pkl
@@ -111,13 +111,13 @@ Katigbak_300366535_Project/
 
 ### Installing (using either macOS/Linux's Terminal or Windows' Command Prompt)
 
-1. Extraction of Katigbak_300366535_Project folder
+1. Extraction of Los-Angeles-Forest-Fires-Time-Series-Prediction-based-on-Sentiment-Analysis-of-Los-Angeles-Times-Art-main folder
 
 If getting it from OneDrive:
-Just simply download the Katigbak_300366535_Project.zip folder and extract the folder which will have the files.                           
+Just simply download the Los-Angeles-Forest-Fires-Time-Series-Prediction-based-on-Sentiment-Analysis-of-Los-Angeles-Times-Art-main.zip folder and extract the folder which will have the files.                           
 
 If getting it from Github:
-Extract Katigbak_300366535_Project.zip and make sure that the extracted folder will have the files because there is a tendency that the extracted folder will have another folder before you are able to get the files. You also have to make sure when you run the virtual environment, you are able to locate the exact location of the Katigbak_300366535_Project folder otherwise it will not run properly.
+Extract Los-Angeles-Forest-Fires-Time-Series-Prediction-based-on-Sentiment-Analysis-of-Los-Angeles-Times-Art-main.zip and make sure that the extracted folder will have the files because there is a tendency that the extracted folder will have another folder before you are able to get the files. You also have to make sure when you run the virtual environment, you are able to locate the exact location of the Los-Angeles-Forest-Fires-Time-Series-Prediction-based-on-Sentiment-Analysis-of-Los-Angeles-Times-Art-main folder otherwise it will not run properly.
 
 2. Set Up a Virtual Environment (Optional but Recommended)
    
